@@ -1,0 +1,19 @@
+critical
+high
+medium
+low
+Critical
+High
+Medium
+Low
+CRITICAL
+HIGH
+MEDIUM
+LOW
+service at risk
+service-at-risk
+service@risk
+Service at risk
+Service-at-risk
+s@r
+S@R

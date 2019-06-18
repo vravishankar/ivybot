@@ -1,0 +1,97 @@
+entities:
+  - search_type
+  - identifier
+  - application
+  - severity
+
+intents:
+  - greet
+  - thank
+  - bye
+  - affirm
+  - deny
+  - inform
+  - search_provider
+
+slots:
+  identifier:
+    type: unfeaturized
+  search_type:
+    type: unfeaturized
+  incident_no:
+    type: unfeaturized
+  change_no:
+    type: unfeaturized
+  application:
+    type: unfeaturized
+  completed:
+    type: unfeaturized
+  severity:
+    type: unfeaturized
+
+templates:
+  utter_greet:
+    - text: "Hello, I am the Ivy bot"
+  utter_thank:
+    - text: "Thanks"
+  utter_bye:
+    - text: "good bye"
+  utter_showmenu:
+    - text: Select one of the options below.
+      buttons:
+        - title: Incidents
+          payload: /inform{"search_type":"incidents"}
+        - title: Changes
+          payload: /inform{"search_type":"changes"}
+  utter_ask_incident_no:
+    - text: Please input the incident number if you know?
+    - text: Please enter the incident number if you know?
+    - text: If you know the incident number please enter so?
+    - text: What is the incident number please?
+  utter_ask_change_no:
+    - text: What is the change number please?
+    - text: Please mention the change number if you know?
+    - text: Let me know the change number please?
+    - text: Enter the change number if you know?
+  utter_ask_application:
+    - text: What is the application name please?
+    - text: Application name please?
+    - text: Please mention the application name if you know
+  utter_ask_severity:
+    - text: Please mention the severity of incidents you are looking for. Please choose one from below?
+    - text: What severity of incidents you are looking for? You can choose the options below?
+      buttons:
+        - title: critical
+          payload: /search_provider{"search_type":"incidents","severity":"critical"}
+        - title: high
+          payload: /search_provider{"search_type":"incidents","severity":"high"}
+        - title: medium
+          payload: /search_provider{"search_type":"incidents","severity":"medium"}
+        - title: low
+          payload: /search_provider{"search_type":"incidents","severity":"low"}
+        - title: service at risk
+          payload: /search_provider{"search_type":"incidents","severity":"s@r"}      
+  utter_ask_risk:
+    - text: Please mention the risk type for changes
+  utter_submit:
+    - text: "All Done"
+  utter_slots_values:
+    - text: "I am going to run a search using the following parameters:\n
+             - search_type: {search_type}\n
+             - incident_no: {incident_no}\n
+             - change_no: {change_no}\n
+             - applcation: {application}\n
+             - severity: {severity}"
+
+actions:
+  - utter_greet
+  - utter_thank
+  - utter_bye
+  - utter_showmenu
+  - utter_slots_values
+  - utter_submit
+  - action_menu
+  - action_search_query
+
+forms:
+  - search_form
