@@ -44,6 +44,7 @@ class ActionMenu(Action):
             buttons.append({"title": "{}".format(query_type.get("name")), "payload": payload})
 
         dispatcher.utter_button_template("utter_greet", buttons, tracker)
+        dispatcher.utter_custom_message({"message":"hello-world"})
         return []
 
 class SearchForm(FormAction):
